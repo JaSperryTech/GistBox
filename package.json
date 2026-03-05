@@ -1,17 +1,7 @@
 {
   "name": "gistbox",
   "version": "1.0.2",
-  "main": "index.js",
-  "author": "JaSperryTech",
   "description": "A CLI tool for managing GitHub Gists",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jsperry0807-rgb/GistBox.git"
-  },
-  "bugs": {
-    "url": "https://github.com/jsperry0807-rgb/GistBox/issues"
-  },
-  "homepage": "https://github.com/jsperry0807-rgb/GistBox#readme",
   "keywords": [
     "gist",
     "github",
@@ -19,21 +9,43 @@
     "runner",
     "typescript"
   ],
+  "homepage": "https://github.com/jsperry0807-rgb/GistBox#readme",
+  "bugs": {
+    "url": "https://github.com/jsperry0807-rgb/GistBox/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsperry0807-rgb/GistBox.git"
+  },
+  "license": "MIT",
+  "author": "JaSperryTech",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "gistbox": "bin/run.js"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "start": "node dist/index.js",
-    "prepublishOnly": "npm run build",
-    "commit": "git add . && npx cz && git push",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "lint": "eslint src --ext .ts",
     "format": "prettier --write \"src/**/*.{ts,js,json,md}\"",
-    "prepare": "husky"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "commit": "git add . && npx cz && git push",
+    "prepare": "husky",
+    "prepublishOnly": "npm run build"
   },
-  "bin": {
-    "gistbox": "./bin/run.js"
-  },
-  "license": "MIT",
-  "type": "module",
   "dependencies": {
     "@octokit/rest": "^22.0.1",
     "chalk": "^5.6.2",
@@ -42,13 +54,14 @@
     "execa": "^9.6.1",
     "fs-extra": "^11.3.3",
     "inquirer": "^13.3.0",
-    "ora": "^9.3.0",
-    "tsup": "^8.5.1"
+    "ora": "^9.3.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.4.2",
     "@commitlint/config-conventional": "^20.4.2",
     "@eslint/js": "^10.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^12.0.2",
     "@types/chalk": "^0.4.31",
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^9.0.9",
@@ -63,9 +76,17 @@
     "lint-staged": "^16.3.1",
     "nodemon": "^3.1.14",
     "prettier": "^3.8.1",
+    "semantic-release": "^24.2.9",
     "ts-node": "^10.9.2",
+    "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.1"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "lint-staged": {
     "*.{js,ts}": [
@@ -80,9 +101,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "files": [
-    "dist",
-    "bin"
-  ]
+  }
 }
