@@ -9,13 +9,13 @@
     "runner",
     "typescript"
   ],
-  "homepage": "https://github.com/jsperry0807-rgb/GistBox#readme",
+  "homepage": "https://github.com/JaSperryTech/GistBox#readme",
   "bugs": {
-    "url": "https://github.com/jsperry0807-rgb/GistBox/issues"
+    "url": "https://github.com/JaSperryTech/GistBox/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jsperry0807-rgb/GistBox.git"
+    "url": "git+https://github.com/JaSperryTech/GistBox.git"
   },
   "license": "MIT",
   "author": "JaSperryTech",
